@@ -10,10 +10,10 @@ Clone the repo or downlad zip.
 ### Structure
 
 foxysquest  
---index.html
---index.php
-/img  
-/img/tiles  
+--index.html  
+--index.php  
+/img   
+/img/tiles    
 /js  
 /sounds  
 
