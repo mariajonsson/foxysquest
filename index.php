@@ -39,9 +39,11 @@
 </div>
 
 </div>
+
 <canvas id="tutorial" width="900" height="591">
-<img src="img/screen1.png">
+  <img src="img/screen1.png">
 </canvas>
+
 <audio id="pop">
 <source src="sounds/drop-2.mp3" type="audio/mpeg">
 </audio>
