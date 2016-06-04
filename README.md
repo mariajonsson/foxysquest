@@ -24,6 +24,8 @@ foxysquest
 Requirements
 ----
 
+Browser support for HTML5 Canvas. [(See W3Schools)](http://www.w3schools.com/html/html5_canvas.asp)
+
 Firefox or Chrome.
 
 At the moment, the game is not supported by internet explorer.
