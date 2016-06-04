@@ -1,10 +1,14 @@
 # Foxy's Quest
-This is a platform-puzzle game. 
+This is a platform-puzzle game, written in JavaScript.
 
-Download
+Source code
 -----
 
 The code is available on Github: https://github.com/mariajonsson/foxysquest   
+
+Download
+-------
+
 Clone the repo or downlad zip.
 
 ### Folder structure
@@ -47,3 +51,8 @@ Choose this installation of you don't have a webserver/PHP installed.
 How to play
 -----
 See instructions in the Instructions.md file!
+
+Versions
+----
+This is the first version of the game.  
+If you find bugs or other issues, report them on GitHub!
