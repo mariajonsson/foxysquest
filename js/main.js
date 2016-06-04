@@ -1066,7 +1066,7 @@ function closePopUp(name) {
 
 function createLogs(array) {
 	var arr, bBlock;
-	var array = array || [[0,110],[0,250],[200,420],[250,330],[370,420],[780,200],[385,220],[510,100],[600,350],[650,350],[20,490],[820,480]];
+	var array = array || [[0,110],[0,250],[200,420],[250,330],[370,420],[780,200],[385,220],[510,100],[600,350],[650,350],[20,490],[810,470]];
 	var bBlocks = [];
 	for (var i = 0; i < array.length; i++) {
 		arr = array[i];
@@ -1586,7 +1586,7 @@ window.Game = (function(){
     sweets = createCollectables([[220,120],[220,156],[220,192],[220,228],[342, 300],[384, 280],[426,280],[468, 300],[420, 80]], "sweet", 'img/tiles/sweet/candy-green.png'), 
     fruits = createCollectables([[40,450],[40,414],[40,378],[40,342],[530,20],[570,20]], "fruit", 'img/tiles/sweet/cherry.png'),
     key1 = createCollectables([[40,180]], "key-metal", 'img/tiles/items/KeyMetal.png'),
-    heart = createCollectables([[820,450]], "life", 'img/tiles/items/heart2.png'),
+    heart = createCollectables([[820,430]], "life", 'img/tiles/items/heart2.png'),
     areaHouse = [logs, walls, sweets, heart, fruits, key1];
     }
     
