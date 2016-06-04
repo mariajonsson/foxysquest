@@ -1,9 +1,6 @@
 # Foxy's Quest
 This is a platform-puzzle game. 
 
-Download and Install
-===========
-
 Download
 -----
 
