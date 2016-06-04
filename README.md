@@ -24,7 +24,8 @@ foxysquest
 Requirements
 ----
 
-Browser support for HTML5 Canvas. [(See W3Schools)](http://www.w3schools.com/html/html5_canvas.asp)
+Browser support for HTML5 Canvas. [(See W3Schools)](http://www.w3schools.com/html/html5_canvas.asp)  
+Browser support for HTML5 Audio. [(See W3Schools)](http://www.w3schools.com/html/html5_audio.asp)
 
 Firefox or Chrome.
 

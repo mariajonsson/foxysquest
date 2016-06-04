@@ -80,109 +80,109 @@ div.cell {
     width: 32px;
 }
 div.cell.bg-tree {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/slime0.png");
+    background-image: url("../img/tiles/wall/slime0.png");
 }
 div.cell.bg-tree-nw {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/trees-top-left.png");
+    background-image: url("../img/tiles/nature/trees-top-left.png");
 }
 div.cell.bg-tree-sw {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/trees-bottom-left.png");
+    background-image: url("../img/tiles/nature/trees-bottom-left.png");
 }
 div.cell.bg-tree-se {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/trees-bottom-right.png");
+    background-image: url("../img/tiles/nature/trees-bottom-right.png");
 }
 div.cell.bg-tree-ne {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/trees-top-right.png");
+    background-image: url("../img/tiles/nature/trees-top-right.png");
 }
 div.cell.bg-grasstree-se {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/tree-lower-right.png");
+    background-image: url("../img/tiles/nature/tree-lower-right.png");
 }
 div.cell.bg-grasstree-ne {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/tree-upper-right.png");
+    background-image: url("../img/tiles/nature/tree-upper-right.png");
 }
 div.cell.bg-grasstree-nw {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/tree-upper-left.png");
+    background-image: url("../img/tiles/nature/tree-upper-left.png");
 }
 div.cell.bg-grasstree-sw {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/tree-lower-left.png");
+    background-image: url("../img/tiles/nature/tree-lower-left.png");
 }
 div.cell.bg-stump {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/tree-stump.png");
+    background-image: url("../img/tiles/nature/tree-stump.png");
 }
 div.cell.bg-wall {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/stone_brick1.png");
+    background-image: url("../img/tiles/wall/stone_brick1.png");
 }
 div.cell.bg-grass-fl-1 {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/flowers-1.png");
+    background-image: url("../img/tiles/nature/flowers-1.png");
 }
 div.cell.bg-grass-fl-2 {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/flowers-2.png");
+    background-image: url("../img/tiles/nature/flowers-2.png");
 }
 div.cell.bg-grass-fl-3 {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/flowers-3.png");
+    background-image: url("../img/tiles/nature/flowers-3.png");
 }
 div.cell.bg-grass-fl-4 {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/flowers-4.png");
+    background-image: url("../img/tiles/nature/flowers-4.png");
 }
 div.cell.bg-grass {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+    background-image: url("../img/tiles/nature/new-grass-f.png");
 }
 div.cell.bg-grass-f {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/grass_full.png");
+    background-image: url("../img/tiles/nature/grass_full.png");
 }
 div.cell.bg-grass-n {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+    background-image: url("../img/tiles/nature/new-grass-f.png");
 }
 div.cell.bg-grass-nw {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+    background-image: url("../img/tiles/nature/new-grass-f.png");
 }
 div.cell.bg-grass-w {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+    background-image: url("../img/tiles/nature/new-grass-f.png");
 }
 div.cell.bg-grass-e {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+    background-image: url("../img/tiles/nature/new-grass-f.png");
 }
 div.cell.bg-grass-ne {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+    background-image: url("../img/tiles/nature/new-grass-f.png");
 }
 div.cell.bg-grass-se {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+    background-image: url("../img/tiles/nature/new-grass-f.png");
 }
 div.cell.bg-grass-sw {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+    background-image: url("../img/tiles/nature/new-grass-f.png");
 }
 div.cell.bg-grass-s {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+    background-image: url("../img/tiles/nature/new-grass-f.png");
 }
 div.cell.bg-wood-door {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/door_0.png");
+    background-image: url("../img/tiles/wall/door_0.png");
 }
 div.cell.bg-door {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/dngn_closed_door.png");
+    background-image: url("../img/tiles/wall/dngn_closed_door.png");
 }
 div.cell.bg-open-door {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/dngn_open_door.png");
+    background-image: url("../img/tiles/wall/dngn_open_door.png");
 }
 div.cell.bg-stairs-down {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/stone_stairs_down.png");
+    background-image: url("../img/tiles/wall/stone_stairs_down.png");
 }
 div.cell.bg-key {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/items/keycgrass.png");
+    background-image: url("../img/tiles/items/keycgrass.png");
 }
 div.cell.bg-chest, div.cell.bg-chest-2 {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/items/chest-grass.png");
+    background-image: url("../img/tiles/items/chest-grass.png");
 }
 div.cell.bg-crystal {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/dngn_green_crystal_wall.png");
+    background-image: url("../img/tiles/wall/dngn_green_crystal_wall.png");
 }
 div.cell.bg-block {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/boulder.png");
+    background-image: url("../img/tiles/wall/boulder.png");
 }
 div.cell.bg-metal {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/dngn_metal_wall.png");
+    background-image: url("../img/tiles/wall/dngn_metal_wall.png");
 }
 div.cell.bg-brick {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/brick_brown0.png");
+    background-image: url("../img/tiles/wall/brick_brown0.png");
 }
 #b1 {
     max-height: 32px;
@@ -190,7 +190,7 @@ div.cell.bg-brick {
     position: absolute;
 }
 .baddie {
-    background-image: url("file:///var/www/html/javascript/foxysquest/img/mini-foxy-sprite.png");
+    background-image: url("../img/mini-foxy-sprite.png");
     height: 32px;
     transition-duration: 0.2s;
     transition-property: left, top;

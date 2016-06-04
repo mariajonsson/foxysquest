@@ -1145,6 +1145,8 @@ function createCollectables(array, itemtype, imgUrl) {
 	return bBlocks;
 }
 
+
+
   // Checks if the cell's class name is in the playable array.
   function isPlayable(cellclass) {
     var playable = ['cell bg-grass', 'cell bg-grass-f', 'cell bg-grass-nw', 'cell bg-grass-w', 'cell bg-grass-n', 'cell bg-grass-ne', 'cell bg-grass-s','cell bg-grass-se','cell bg-grass-sw','cell bg-grass-e', 'cell bg-grass-fl-1','cell bg-grass-fl-2','cell bg-grass-fl-3','cell bg-grass-fl-4']; 
@@ -1347,6 +1349,14 @@ window.BoardGame = (function(){
     }
   };
   
+  board.fillSequence = function(val, offset, arrlength) {
+    var b;
+    for (b = offset; b < (arrlength+offset); b+=1) {
+      this[b] = val;
+    }
+  }
+  
+  
   board.makeColumn = function(val, offset, numcols, numrows) {
     var b;
     for (b = 1; b <= numrows; b+=1) {
@@ -1365,7 +1375,7 @@ window.BoardGame = (function(){
   }
   
     board.makeRow = function(val, offset, length) {
-      board.fill(val, offset, offset+length);
+      board.fillSequence(val, offset, length);
   }
   board.makeRowEverySecond = function(val, offset, length) {
     var b;
@@ -1379,7 +1389,7 @@ window.BoardGame = (function(){
   board.length = width*height;
   
   //background
-  board.fill('grass', 0, width*height);
+  board.fillSequence('grass', 0, width*height);
   
   //top border
   board.makeRowEverySecond('tree-ne', 1, 24);
