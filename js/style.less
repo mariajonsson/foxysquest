@@ -1,0 +1,326 @@
+
+/**
+ * Here comes specific style for a certain test program.
+ */
+ 
+
+ 
+ #message {
+ display: inline-block;
+ 
+ vertical-align:top;
+ padding: 0px;
+ font-family: "Courier", Monaco, monospace;
+ color: white;
+ font-weight: bold;
+   position: absolute;
+   width: 768px;
+   height: 640px;
+   z-index: 10;
+   background-color:transparent;
+   top: 0;
+   left: 0;
+ }
+ 
+ #message span {
+ position: absolute;
+ display: inline-block;
+ vertical-align: top;
+ }
+ 
+ #message img {
+ vertical-align: top;
+ width: 22x;
+ height: 22px;
+ }
+ 
+ #popup {
+ display: none;
+ padding: 20px;
+ background-color: white;
+ color: black;
+ font-family: "Courier", Monaco, monospace;
+ font-weight: bold;
+ position: absolute;
+ width: 80%;
+ height: 30%;
+ z-index: 20;
+ top:0;
+ left: 0;
+ outline: black solid 5px;
+ text-align: center;
+ }
+ 
+ #area {
+ vertical-align: top;
+ position: relative;
+ width: 768px;
+ }
+ 
+ #board {
+ 
+ margin: 0px;
+ padding: 0px;
+ width: 768px;
+ display: inline-block;
+ }
+ 
+ table, tbody, tr, td, .row {
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 0;
+    margin: 0;
+    border: 0 none;
+}
+
+div.row {
+	height: 32px;
+	width: 768px;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}
+body tr {
+    border: 0 none;
+}
+  div.cell {
+  display: table-cell;
+  color: red;
+  font-size: 12px;
+  width: 32px;
+  height: 32px;
+  max-height: 32px;
+  max-width: 32px;
+  margin: 0px;
+  padding: 0px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  
+  
+ &.bg-tree {
+   background-image: url('../img/tiles/wall/slime0.png');
+ }
+  &.bg-tree-nw {
+   background-image: url('../img/tiles/nature/trees-top-left.png');
+ }
+ &.bg-tree-sw {
+   background-image: url('../img/tiles/nature/trees-bottom-left.png');
+ }
+ &.bg-tree-se {
+   background-image: url('../img/tiles/nature/trees-bottom-right.png');
+ }
+ &.bg-tree-ne {
+   background-image: url('../img/tiles/nature/trees-top-right.png');
+ }
+ &.bg-grasstree-se {
+   background-image: url('../img/tiles/nature/tree-lower-right.png');
+ }
+ &.bg-grasstree-ne {
+   background-image: url('../img/tiles/nature/tree-upper-right.png');
+ }
+ &.bg-grasstree-nw {
+   background-image: url('../img/tiles/nature/tree-upper-left.png');
+ }
+ &.bg-grasstree-sw {
+   background-image: url('../img/tiles/nature/tree-lower-left.png');
+ }
+  &.bg-stump {
+   background-image: url('../img/tiles/nature/tree-stump.png');
+ }
+ &.bg-wall {
+   background-image: url('../img/tiles/wall/stone_brick1.png');
+ }
+ &.bg-grass-fl-1 {
+   background-image: url('../img/tiles/nature/flowers-1.png');
+ }
+ &.bg-grass-fl-2 {
+   background-image: url('../img/tiles/nature/flowers-2.png');
+ }
+ &.bg-grass-fl-3 {
+   background-image: url('../img/tiles/nature/flowers-3.png');
+ }
+ &.bg-grass-fl-4 {
+   background-image: url('../img/tiles/nature/flowers-4.png');
+ }
+ &.bg-grass {
+   background-image: url('../img/tiles/nature/new-grass-f.png');
+ }
+ &.bg-grass-f {
+   background-image: url('../img/tiles/nature/grass_full.png');
+ }
+ 
+ &.bg-grass-n {
+   background-image: url('../img/tiles/nature/new-grass-f.png');
+ }
+ &.bg-grass-nw {
+   background-image: url('../img/tiles/nature/new-grass-f.png');
+ }
+ &.bg-grass-w {
+   background-image: url('../img/tiles/nature/new-grass-f.png');
+ }
+ &.bg-grass-e {
+   background-image: url('../img/tiles/nature/new-grass-f.png');
+ }
+ &.bg-grass-ne {
+   background-image: url('../img/tiles/nature/new-grass-f.png');
+ }
+ &.bg-grass-se {
+   background-image: url('../img/tiles/nature/new-grass-f.png');
+ }
+ &.bg-grass-sw {
+   background-image: url('../img/tiles/nature/new-grass-f.png');
+ }
+ &.bg-grass-s {
+   background-image: url('../img/tiles/nature/new-grass-f.png');
+ }
+ &.bg-wood-door {
+   background-image: url('../img/tiles/wall/door_0.png');
+ }
+ &.bg-door {
+   background-image: url('../img/tiles/wall/dngn_closed_door.png');
+ }
+ &.bg-open-door {
+   background-image: url('../img/tiles/wall/dngn_open_door.png');
+   }
+ &.bg-stairs-down {
+   background-image: url('../img/tiles/wall/stone_stairs_down.png');
+   }
+ &.bg-key {
+   background-image: url('../img/tiles/items/keycgrass.png');
+ }
+ &.bg-chest, &.bg-chest-2 {
+   background-image: url('../img/tiles/items/chest-grass.png');
+ }
+ 
+ &.bg-crystal {
+   background-image: url('../img/tiles/wall/dngn_green_crystal_wall.png');
+ }
+ &.bg-block {
+   background-image: url('../img/tiles/wall/boulder.png');
+ }
+  &.bg-metal {
+   background-image: url('../img/tiles/wall/dngn_metal_wall.png');
+ }
+ &.bg-brick {
+   background-image: url('../img/tiles/wall/brick_brown0.png');
+ }
+
+ }
+ 
+ /** --------------------------------------------------------------
+ * Baddie from CSS sprite.
+ * 
+ */
+#b1{position:absolute;max-width:32px;max-height:32px;}
+
+.baddie{width:32px;height:32px;background-image:url('../img/mini-foxy-sprite.png');
+  .transition-property(e('left,top'));.transition-duration(0.2s);.transition-timing-function(ease);
+  &.up{background-position:32px 0;}
+  &.down{background-position:64px 0px;}
+  &.left{background-position:96px 0;}
+  &.right{background-position:0 0;}
+}
+
+
+canvas#tutorial {
+   display: none;
+   border:1px solid #999;
+   background-color:#000;
+}
+
+
+canvas#status {
+padding: 0px;
+  background-color: transparent;
+  width: inherit;
+  height: inherit;
+}
+
+
+/** --------------------------------------------------------------
+ * CSS3 mixins.
+ * 
+ */
+.border-radius(@radius:5px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+.box-shadow(@shadow:5px 5px 5px 5px @grey) {
+  -webkit-box-shadow: @shadow;
+     -moz-box-shadow: @shadow;
+          box-shadow: @shadow;
+}
+.transition(@property: all, @time: 1s, @timing: ease-in-out) {
+  -webkit-transition: @property @time @timing;
+     -moz-transition: @property @time @timing;
+      -ms-transition: @property @time @timing;
+       -o-transition: @property @time @timing;
+          transition: @property @time @timing;
+}
+.transition-property(@property: all) {
+  -webkit-transition-property: @property;
+     -moz-transition-property: @property;
+      -ms-transition-property: @property;
+       -o-transition-property: @property;
+          transition-property: @property;
+}
+.transition-duration(@time: 1s) {
+  -webkit-transition-duration: @time;
+     -moz-transition-duration: @time;
+      -ms-transition-duration: @time;
+       -o-transition-duration: @time;
+          transition-duration: @time;
+}
+.transition-timing-function(@timing: ease-in-out) {
+  -webkit-transition-timing-function: @timing;
+     -moz-transition-timing-function: @timing;
+      -ms-transition-timing-function: @timing;
+       -o-transition-timing-function: @timing;
+          transition-timing-function: @timing;
+}
+.rotate(@degrees) {
+  -webkit-transform: rotate(@degrees);
+     -moz-transform: rotate(@degrees);
+      -ms-transform: rotate(@degrees);
+       -o-transform: rotate(@degrees);
+          transform: rotate(@degrees);
+}
+.scale(@ratio) {
+  -webkit-transform: scale(@ratio);
+     -moz-transform: scale(@ratio);
+      -ms-transform: scale(@ratio);
+       -o-transform: scale(@ratio);
+          transform: scale(@ratio);
+}
+.skew(@x, @y) {
+  -webkit-transform: skew(@x, @y);
+     -moz-transform: skew(@x, @y);
+      -ms-transform: skew(@x, @y);
+       -o-transform: skew(@x, @y);
+          transform: skew(@x, @y);
+}
+.translate(@x, @y) {
+  -webkit-transform: translate(@x, @y);
+     -moz-transform: translate(@x, @y);
+      -ms-transform: translate(@x, @y);
+       -o-transform: translate(@x, @y);
+          transform: translate(@x, @y);
+}
+.translate3d(@x, @y, @z) {
+  -webkit-transform: translate(@x, @y, @z);
+     -moz-transform: translate(@x, @y, @z);
+      -ms-transform: translate(@x, @y, @z);
+       -o-transform: translate(@x, @y, @z);
+          transform: translate(@x, @y, @z);
+}
+.transform(@functions) {
+  -webkit-transform: @functions;
+     -moz-transform: @functions;
+      -ms-transform: @functions;
+       -o-transform: @functions;
+          transform: @functions;
+}
+
+
