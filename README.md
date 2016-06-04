@@ -7,7 +7,7 @@ Download
 The code is available on Github: https://github.com/mariajonsson/foxysquest   
 Clone the repo or downlad zip.
 
-### Structure
+### Folder structure
 
 foxysquest  
 --index.html  
