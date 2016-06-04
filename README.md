@@ -31,7 +31,7 @@ Install and configure
 
 
 ### Html (standard install)
-Choose this installation of you don't have a webserver and PHP installed. 
+Choose this installation of you don't have a webserver/PHP installed. 
 
 1. Install the webroot folder on your computer   
 2. Open **webroot/index.html** in your web browser   
