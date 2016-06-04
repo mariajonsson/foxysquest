@@ -29,6 +29,7 @@
       </div>     
     <?php endfor?>
 </div>
+
 <div id="message" >
   <span id='life'></span>
   <span id='items'></span>
@@ -62,7 +63,7 @@
 <audio id="ta-da">
 <source src="sounds/fanfare.mp3" type="audio/mpeg">
 </audio> 
-</div>
+
 
 <footer id='footer'>
 

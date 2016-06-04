@@ -1,0 +1,222 @@
+#message {
+    background-color: transparent;
+    color: white;
+    display: inline-block;
+    font-family: "Courier",Monaco,monospace;
+    font-weight: bold;
+    height: 640px;
+    left: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    vertical-align: top;
+    width: 768px;
+    z-index: 10;
+}
+#message span {
+    display: inline-block;
+    position: absolute;
+    vertical-align: top;
+}
+#message img {
+    height: 22px;
+    vertical-align: top;
+}
+#popup {
+    background-color: white;
+    color: black;
+    display: none;
+    font-family: "Courier",Monaco,monospace;
+    font-weight: bold;
+    height: 30%;
+    left: 0;
+    outline: 5px solid black;
+    padding: 20px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 80%;
+    z-index: 20;
+}
+#area {
+    position: relative;
+    vertical-align: top;
+    width: 768px;
+}
+#board {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 768px;
+}
+table, tbody, tr, td, .row {
+    border: 0 none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0;
+    padding: 0;
+}
+div.row {
+    display: block;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    width: 768px;
+}
+body tr {
+    border: 0 none;
+}
+div.cell {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    color: red;
+    display: table-cell;
+    font-size: 12px;
+    height: 32px;
+    margin: 0;
+    max-height: 32px;
+    max-width: 32px;
+    padding: 0;
+    width: 32px;
+}
+div.cell.bg-tree {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/slime0.png");
+}
+div.cell.bg-tree-nw {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/trees-top-left.png");
+}
+div.cell.bg-tree-sw {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/trees-bottom-left.png");
+}
+div.cell.bg-tree-se {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/trees-bottom-right.png");
+}
+div.cell.bg-tree-ne {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/trees-top-right.png");
+}
+div.cell.bg-grasstree-se {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/tree-lower-right.png");
+}
+div.cell.bg-grasstree-ne {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/tree-upper-right.png");
+}
+div.cell.bg-grasstree-nw {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/tree-upper-left.png");
+}
+div.cell.bg-grasstree-sw {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/tree-lower-left.png");
+}
+div.cell.bg-stump {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/tree-stump.png");
+}
+div.cell.bg-wall {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/stone_brick1.png");
+}
+div.cell.bg-grass-fl-1 {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/flowers-1.png");
+}
+div.cell.bg-grass-fl-2 {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/flowers-2.png");
+}
+div.cell.bg-grass-fl-3 {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/flowers-3.png");
+}
+div.cell.bg-grass-fl-4 {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/flowers-4.png");
+}
+div.cell.bg-grass {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+}
+div.cell.bg-grass-f {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/grass_full.png");
+}
+div.cell.bg-grass-n {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+}
+div.cell.bg-grass-nw {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+}
+div.cell.bg-grass-w {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+}
+div.cell.bg-grass-e {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+}
+div.cell.bg-grass-ne {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+}
+div.cell.bg-grass-se {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+}
+div.cell.bg-grass-sw {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+}
+div.cell.bg-grass-s {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/nature/new-grass-f.png");
+}
+div.cell.bg-wood-door {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/door_0.png");
+}
+div.cell.bg-door {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/dngn_closed_door.png");
+}
+div.cell.bg-open-door {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/dngn_open_door.png");
+}
+div.cell.bg-stairs-down {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/stone_stairs_down.png");
+}
+div.cell.bg-key {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/items/keycgrass.png");
+}
+div.cell.bg-chest, div.cell.bg-chest-2 {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/items/chest-grass.png");
+}
+div.cell.bg-crystal {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/dngn_green_crystal_wall.png");
+}
+div.cell.bg-block {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/boulder.png");
+}
+div.cell.bg-metal {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/dngn_metal_wall.png");
+}
+div.cell.bg-brick {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/tiles/wall/brick_brown0.png");
+}
+#b1 {
+    max-height: 32px;
+    max-width: 32px;
+    position: absolute;
+}
+.baddie {
+    background-image: url("file:///var/www/html/javascript/foxysquest/img/mini-foxy-sprite.png");
+    height: 32px;
+    transition-duration: 0.2s;
+    transition-property: left, top;
+    transition-timing-function: ease;
+    width: 32px;
+}
+.baddie.up {
+    background-position: 32px 0;
+}
+.baddie.down {
+    background-position: 64px 0;
+}
+.baddie.left {
+    background-position: 96px 0;
+}
+.baddie.right {
+    background-position: 0 0;
+}
+canvas#tutorial {
+    background-color: #000;
+    border: 1px solid #999;
+    display: none;
+}
+canvas#status {
+    background-color: transparent;
+    height: inherit;
+    padding: 0;
+    width: inherit;
+}
