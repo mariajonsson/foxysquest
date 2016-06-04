@@ -43,3 +43,7 @@ Choose this installation of you don't have a webserver/PHP installed.
 1. Install the webroot folder on your computer   
 2. Open **webroot/index.php** in your web browser   
 3. Play!
+
+How to play
+-----
+See instructions in the Instructions.md file!
