@@ -1281,7 +1281,7 @@ Target.prototype = {
       this.moveIt();
 
       document.getElementById("area").style.display = "none";
-      document.getElementById("tutorial").style.display = "initial";
+      document.getElementById("tutorial").style.display = "inline-block";
       this.move = false;
  	
       baddie.parentNode.removeChild(baddie);
