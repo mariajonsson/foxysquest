@@ -28,8 +28,7 @@ Browser support for HTML5 Canvas. [(See W3Schools)](http://www.w3schools.com/htm
 Browser support for HTML5 Audio. [(See W3Schools)](http://www.w3schools.com/html/html5_audio.asp)
 
 Firefox or Chrome.
-
-At the moment, the game is not supported by internet explorer.
+The game has also been tested in Internet Explorer 11. 
 
 
 Install and configure
