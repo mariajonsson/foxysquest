@@ -65,8 +65,6 @@ window.Key = {
 window.addEventListener('keyup',   function(event) { Key.onKeyup(event); },   false);
 window.addEventListener('keydown', function(event) { Key.onKeydown(event); }, false);
 
-
-
 /**
  * All objects are Vectors
  */
@@ -80,9 +78,7 @@ Vector.prototype = {
   imuls: function (scalar) { this.x *= scalar; this.y *= scalar; return this; },      // Multiply itself with scalar
   adds:  function (scalar) { return new Vector( this.x + scalar, this.y + scalar); }, // Multiply with scalar
   iadd:  function (vector) { this.x += vector.x; this.y += vector.y; return this; }   // Add itself with Vector
-}
-
-
+};
 
 /**
  * The forces around us.
@@ -123,7 +119,7 @@ Forces.prototype = {
     }
   }
 
-}
+};
 
 window.Forces = new Forces();
 window.Forces.addAcceleration('gravity', new Vector(0, 9.82));
@@ -140,22 +136,19 @@ this.ct = ct;
 this.height = height || 600;
 this.width = width || 900;
 this.elements = elements;
-//console.log(elements);
 }
 
 GameArea.prototype = {
-
+	
 	draw: function(ct) {
-		
-		for (var i = 0; i < this.elements.length; i++) {
-			for (var a = 0; a < this.elements[i].length; a++) {
+		var i, a;
+		for (i = 0; i < this.elements.length; i++) {
+			for (a = 0; a < this.elements[i].length; a++) {
 				this.elements[i][a].draw(ct);	
 			}	
 		}
-
 	}
-
-}
+};
 
 /*
 *  Item. Super object, for items that belong to the game area.
@@ -171,7 +164,6 @@ function Item(id, position, imageSrc, width, height) {
   this.height = height || 32;
   this.width = width || 32;
   this.position   = position  || new Vector(0,0);
-
 }
 
 Item.prototype = {
@@ -185,9 +177,7 @@ Item.prototype = {
     
    //do something
   }
-}
-
-
+};
 
 /**
  *  Building block. subobject to Item. 
@@ -345,17 +335,20 @@ MovableObject.prototype = {
   //checks if the object has collided with another object type
    collideWith: function(array, stats, otherRadius, thisRadius) {
     var radius1 = thisRadius || this.width/2;
-     
+    var a, b, radius2, distance;
      //if object area touches block object area 
     //compare distance from objects within a radius
     if (!this.pushed) {
+    	
       for (i=0; i < array.length; i++) {
-	var a = this.position.x-array[i].position.x;
-	var b = this.position.y-array[i].position.y;
-	var radius2 = otherRadius || array[i].width/2;
-	var distance = Math.sqrt((a*a)+(b*b))-radius1-radius2;
+	 a = this.position.x-array[i].position.x;
+	 b = this.position.y-array[i].position.y;
+	 radius2 = otherRadius || array[i].width/2;
+	 distance = Math.sqrt((a*a)+(b*b))-radius1-radius2;
 
-	if (distance <=0) this.collideAction(stats);
+	if (distance <=0) { 
+		this.collideAction(stats);
+	}
       }
     }
   },
@@ -372,10 +365,10 @@ MovableObject.prototype = {
     var rightLimit = right  || true;
     var radius = objectradius || this.width/2;
     
-    if(upLimit    && this.position.y <= radius)  		this.position.y = radius;
-    if(downLimit  && this.position.y+radius >= height) 	this.position.y = height-radius;
-    if(rightLimit && this.position.x+radius+64 >= width)     this.position.x = width-radius-64;
-    if(leftLimit  && this.position.x <= radius)   	this.position.x = radius;
+    if(upLimit    && this.position.y <= radius)  	{	this.position.y = radius;}
+    if(downLimit  && this.position.y+radius >= height) {	this.position.y = height-radius;}
+    if(rightLimit && this.position.x+radius+64 >= width)  {   this.position.x = width-radius-64;}
+    if(leftLimit  && this.position.x <= radius)  { 	this.position.x = radius;}
     //console.log(this.position.x, radius);
   }
 
@@ -470,15 +463,15 @@ Player.prototype.moveDown = function() {
   
 Player.prototype.update = function(td) {
   if (!this.pushed && !this.floating && !this.falling) {
-    if (Key.isDown(Key.UP, Key.W))     this.jump(td, this.position.y);
-    if (Key.isDown(Key.LEFT, Key.A))   this.moveLeft();
+    if (Key.isDown(Key.UP, Key.W))   { this.jump(td, this.position.y);}
+    if (Key.isDown(Key.LEFT, Key.A))   { this.moveLeft();}
     //if (Key.isDown(Key.DOWN, Key.S))   this.moveDown();
-    if (Key.isDown(Key.RIGHT, Key.D))  this.moveRight();
+    if (Key.isDown(Key.RIGHT, Key.D))  { this.moveRight();}
     }
         
     else if (this.floating) {
-       if (Key.isDown(Key.LEFT, Key.A))   this.position.x -= 1 * this.velocity.x/2;
-       if (Key.isDown(Key.RIGHT, Key.D))  this.position.x += 1 * this.velocity.x/2;
+       if (Key.isDown(Key.LEFT, Key.A)) {this.position.x -= 1 * this.velocity.x/2;}
+       if (Key.isDown(Key.RIGHT, Key.D)) { this.position.x += 1 * this.velocity.x/2;}
        this.moveFloating(td); 
        //console.log (this.position.y, this.jumpOffset);
        //if (this.position.y >= this.jumpOffset) {
@@ -544,17 +537,15 @@ Player.prototype.stayInArea = function(width, height,stats) {
       	  else {
       	  	  this.position.x = width-64-radius;
       	  }
-	  
-	}
+	 	}
       }
-    };
+    }
     
     // the left wall, no exit
-    if (this.position.x <= radius)   	this.position.x = radius;
+    if (this.position.x <= radius)   {	this.position.x = radius;}
     
     //the center wall in level 2
     if (stats.checkLevel() === 2) {
-    	//console.log(this.position.x);
       if(this.position.x < 366 && this.position.x > 350 && this.position.y < 390)  {
       this.position.x = 366;
       }
@@ -562,7 +553,7 @@ Player.prototype.stayInArea = function(width, height,stats) {
       this.position.x = 304;
       }
     }
-  }
+  };
 
 // If the player collides with something deadly
 
@@ -573,33 +564,35 @@ Player.prototype.collideAction = function(stats) {
       this.direction = 0.5*Math.PI;
       this.update(td);
       stats.gameOver(true);
-}
+};
 
 // If the player collides with something solid.
 
 Player.prototype.collideBlock = function(blocks) {
     //if player area touches block area 
     //compare distance from player and block
+    var dir, a, b, distance, angle;
+    
     for (i=0; i < blocks.length; i++) {
    if (!blocks[i].pushed) {  
-    var dir = this.direction;
-    var a = this.position.x-blocks[i].position.x;
-    var b = this.position.y-blocks[i].position.y;
-    var distance = Math.sqrt((a*a)+(b*b))-35-50;
+    dir = this.direction;
+    a = this.position.x-blocks[i].position.x;
+    b = this.position.y-blocks[i].position.y;
+    distance = Math.sqrt((a*a)+(b*b))-35-50;
     if (distance <=0) {
 
-      var angle = Math.atan2(Math.abs(b),Math.abs(a));
+      angle = Math.atan2(Math.abs(b),Math.abs(a));
       if (dir === 0) {
-	if (b>0) { angle = -angle; };
+	if (b>0) { angle = -angle; }
       }
       else if (dir === 0.5*Math.PI) {
-	if (a>0) { angle = -angle; };
+	if (a>0) { angle = -angle; }
       }
       else if (dir === 1*Math.PI) {
-	if (b<0) { angle = -angle; };
+	if (b<0) { angle = -angle; }
       }
       else if (dir === 1.5*Math.PI) {
-	if (a>0) { angle = -angle; };
+	if (a>0) { angle = -angle; }
       }
 
       playAudio("pop");
@@ -619,12 +612,13 @@ Player.prototype.collideBlock = function(blocks) {
     var baseline = this.position.y+40; 
     var px1 = this.position.x;
     var px2 = this.position.x+32;
+    var bx1, bx2, distanceY;
     
     for (i=0; i < blocks.length; i++) {
       
-    var bx1 = blocks[i].position.x;
-    var bx2 = blocks[i].position.x+blocks[i].width;
-    var distanceY = blocks[i].position.y-baseline;
+    bx1 = blocks[i].position.x;
+    bx2 = blocks[i].position.x+blocks[i].width;
+    distanceY = blocks[i].position.y-baseline;
 
     
     if (px1 > bx1-36 && px2 < bx2+16 && distanceY <=7 && distanceY > -2) {
@@ -680,6 +674,7 @@ Stats.prototype = {
 	//Draws the status row or messages for the canvas
 	
   draw: function(ct) {
+  	  var length, j, k;
     ct.save();
     ct.fillStyle = 'white';
     ct.font = 'bold 18px Courier';
@@ -689,9 +684,9 @@ Stats.prototype = {
     ct.fillText('Life: ', this.width-500, 20);
 
     if (this.inventory != 0) {
-      var length = this.inventory.length;
-      var j = 0; 
-      var k = 0;
+      length = this.inventory.length;
+      j = 0; 
+      k = 0;
       for (j = 0; length > 0; j++) {
       ct.drawImage(this.inventory[j].image, 0, 0,32,32,this.width-280+k,2,25,25);
       k = k+25;
@@ -700,9 +695,9 @@ Stats.prototype = {
       }
     }
     if (this.life != 0) {
-      var length = this.life.length;
-      var j = 0; 
-      var k = 0;
+      length = this.life.length;
+      j = 0; 
+      k = 0;
       
       for (j = 0; j < length; j++) {
       ct.drawImage(this.life[j].image, 0, 0,32,32,this.width-445+k,2,22,22);
@@ -727,15 +722,21 @@ Stats.prototype = {
   
   //Draws the status row for the HTML game area  
   drawForBoard: function () {
-    var image;
+    var image, length, items, life, j, score;
     this.HTMLStatusRow = document.getElementById('message');
-    var life = document.getElementById('life');
+    life = document.getElementById('life');
     life.innerHTML = "Life: ";
     life.style.left = this.width-500 + 'px';
+    items = document.getElementById('items');
+    items.style.left = this.width-350 + 'px';
+    items.innerHTML = "Items: ";
+    score = document.getElementById('score');
+    score.style.left = this.width-200 + 'px';
+    score.innerHTML = "Score: "+ this.score;
+    
     if (this.life != 0) {
-      var length = this.life.length;
-      var j = 0; 
-      //var k = 0;
+      length = this.life.length;
+      j = 0; 
       for (j = 0; j < length; j++) {
 	image = document.createElement('IMG');
 	image.src = this.life[j].image.src; 
@@ -744,23 +745,15 @@ Stats.prototype = {
       }
     }
     
-    var items = document.getElementById('items');
-    items.style.left = this.width-350 + 'px';
-    items.innerHTML = "Items: ";
-    
      if (this.inventory != 0) {
-      var length = this.inventory.length;
-      var j = 0; 
+      length = this.inventory.length;
+      j = 0; 
       for (j = 0; j < length; j++) {
 	image = document.createElement('IMG');
 	image.src = this.inventory[j].image.src; 
 	items.appendChild(image);
       }
     }
-    
-    var score = document.getElementById('score');
-    score.style.left = this.width-200 + 'px';
-    score.innerHTML = "Score: "+ this.score;
 
   },
 
@@ -782,6 +775,7 @@ Stats.prototype = {
        this.dead = false;
        this.gamover = false;
        this.msg = null;
+       this.notexploded = true;
        
        //this.setNull();
        document.getElementById("tutorial").style.display = "none";
@@ -796,6 +790,7 @@ Stats.prototype = {
   
   restartLevel: function() {
       this.msg = null;
+      this.notexploded = true;
       stats.inventory = [];
       stats.score = 0;
       Game.init(this.level,stats);
@@ -909,10 +904,10 @@ Stats.prototype = {
    switch (chestname) {
    case "cell bg-chest":
    	   return this.chest1Empty;
-   	   break;
+   	   
    case "cell bg-chest-2":
    	   return this.chest2Empty;
-   	   break;
+   	   
    default:
    	   return false;
    }
@@ -922,10 +917,10 @@ Stats.prototype = {
    switch (key) {
    case "key-metal":
    	   return "cell bg-chest";
-   	   break;
+   	   
    case "key-copper":
    	   return "cell bg-chest-2";
-   	   break;
+   	   
    default:
    	   return false;
    }
@@ -966,18 +961,19 @@ Stats.prototype = {
 		  //else, collect the object inside
 		  else {
 		  	  
-		  	  if(currentchest === "cell bg-chest") {
-		  this.addInventory(new CollectableItem(0, new Vector(0,0), 'img/tiles/items/KeyCopper.png',32,32,"key-copper"));
-		  this.chest1Empty = true;
-		  this.drawForBoard();
-		  this.msg += "<br>There is a key inside! You've picked it up.";
-		  	  }
-		  	  else if (currentchest === "cell bg-chest-2") {
-		  	  this.addLife(new CollectableItem(0, new Vector(0,0), 'img/tiles/items/heart2.png',32,32,"life"));
-		  this.chest2Empty = true;
-		  this.drawForBoard();
-		  this.msg += "<br>There is an extra life inside! You've collected it.";
-		  	  }
+		  if(currentchest === "cell bg-chest") {
+		  	  var collItem = new CollectableItem(0, new Vector(0,0), 'img/tiles/items/KeyCopper.png',32,32,"key-copper");
+			  this.addInventory(collItem);
+			  this.chest1Empty = true;
+			  this.drawForBoard();
+			  this.msg += "<br>There is a key inside! You've picked it up.";
+				  }
+				  else if (currentchest === "cell bg-chest-2") {
+				  this.addLife(new CollectableItem(0, new Vector(0,0), 'img/tiles/items/heart2.png',32,32,"life"));
+			  this.chest2Empty = true;
+			  this.drawForBoard();
+			  this.msg += "<br>There is an extra life inside! You've collected it.";
+				  }
 		  }
 		  
 		  
@@ -998,17 +994,17 @@ Stats.prototype = {
   checkInventory: function(item) {
     
    if (this.inventory != 0) {    
-     for(var l = 0; l < this.inventory.length; l++) {
+   	   var l;
+     for(l = 0; l < this.inventory.length; l++) {
       if (this.inventory[l].itemtype === item) {
-	return true;
-	break;
+      	  return true;
+      	  //break;
       }
-      
       }
    }
     
   } 
-} 
+}; 
 
 
 
@@ -1016,19 +1012,19 @@ function isEven(n) {
   return n == parseFloat(n) && !(n % 2);
 }
 
-function removeBlock(id, blocks, blocktype, stats) {
-  
-   for(var i = blocks.length - 1; i >= 0; i--) {
+function removeBlock(id, blocks, stats) {
+  var i;
+   for(i = blocks.length - 1; i >= 0; i-=1) {
     if(blocks[i].id === id) {
     blocks.splice(i, 1);
-    //console.log(blocktype+' '+id+' is cleared');
+    
     }
  }
  if (blocks.length === 0) {
     //console.log('no more blocks in this array');
   }
   
-};
+}
 
 function playAudio(audioid) {
 	var audio = document.getElementById(audioid);
@@ -1039,7 +1035,7 @@ function playAudio(audioid) {
 		}
 	audio.play();	  
 	}
-};
+}
 
 
 function popUp(name, message, top, left, width, height) {
@@ -1057,7 +1053,7 @@ function popUp(name, message, top, left, width, height) {
 }
 
 function closePopUp(name) {
-
+  var popup = document.getElementById(name);
   var p = document.getElementById('text');
   p.innerHTML = "";
   popup.style.display = "none";
@@ -1065,10 +1061,10 @@ function closePopUp(name) {
 
 
 function createLogs(array) {
-	var arr, bBlock;
+	var arr, bBlock, i;
 	var array = array || [[0,110],[0,250],[200,420],[250,330],[370,420],[780,200],[385,220],[510,100],[600,350],[650,350],[20,490],[810,470]];
 	var bBlocks = [];
-	for (var i = 0; i < array.length; i++) {
+	for (i = 0; i < array.length; i++) {
 		arr = array[i];
 		bBlock = new BuildingBlock(new Vector(arr[0], arr[1]), 'img/tiles/platforms/log-hstl.png', 128, 32);
 		bBlocks.push(bBlock);
@@ -1077,32 +1073,32 @@ function createLogs(array) {
 }
 
 function createPlatforms(array) {
-	var arr, bBlock;
+	var arr, bBlock, i;
 	//var img = imgSrc;
 	var array = array || [[0,100,4],[0,216,8],[200,364,10],[780,200,4],[376,236,4],[200,100,17],[600,364,6],[600,236,4],[20,452,4],[810,480,4],[320,300,1],[130,560,6],[400,560,6],[680,560,6]];
 	var bBlocks = [];
-	for (var i = 0; i < array.length; i++) {
+	for (i = 0; i < array.length; i++) {
 		arr = array[i];
 		bBlock = new createBricksHztl(arr[0], arr[1], arr[2]);
 		//console.log(bBlock);
-		if (i === 0) bBlocks = bBlock;
-		else bBlocks = bBlocks.concat(bBlock);
+		if (i === 0) { bBlocks = bBlock;}
+		else { bBlocks = bBlocks.concat(bBlock);}
 	}
 	//console.log(bBlocks);
 	return bBlocks;
 }
 
 function createPillars(array, imgSrc) {
-  var arr, bBlock;
+  var arr, bBlock, i;
 	var img = imgSrc;
 	//var array = array;
 	var bBlocks = [];
-	for (var i = 0; i < array.length; i++) {
+	for (i = 0; i < array.length; i++) {
 		arr = array[i];
 		bBlock = new createBricks(arr[0], arr[1], arr[2], imgSrc);
 		//console.log(bBlock);
-		if (i === 0) bBlocks = bBlock;
-		else bBlocks = bBlocks.concat(bBlock);
+		if (i === 0) { bBlocks = bBlock;}
+		else {bBlocks = bBlocks.concat(bBlock);}
 	}
 	//console.log(bBlocks);
 	return bBlocks;
@@ -1110,9 +1106,9 @@ function createPillars(array, imgSrc) {
 }
 
 function createBricks(startPointx, startPointy, numblocks, imgSrc) {
-	var bBlock;
+	var bBlock, i;
 	var bBlocks = [];
-	for (var i = 0; i < numblocks; i++) {
+	for (i = 0; i < numblocks; i++) {
 		bBlock = new BuildingBlock(new Vector(startPointx, startPointy), imgSrc, 32, 32);
 		bBlocks.push(bBlock);
 		startPointy += 32;
@@ -1121,9 +1117,9 @@ function createBricks(startPointx, startPointy, numblocks, imgSrc) {
 }
 
 function createBricksHztl(startPointx, startPointy, numblocks) {
-	var bBlock;
+	var bBlock, i;
 	var bBlocks = [];
-	for (var i = 0; i < numblocks; i++) {
+	for (i = 0; i < numblocks; i++) {
 		bBlock = new BuildingBlock(new Vector(startPointx, startPointy), 'img/tiles/wall/stone_brick1.png', 32, 32);
 		bBlocks.push(bBlock);
 		startPointx += 32;
@@ -1135,17 +1131,15 @@ function createBricksHztl(startPointx, startPointy, numblocks) {
 
 function createCollectables(array, itemtype, imgUrl) {
   
-  var arr, bBlock;
+  var arr, bBlock, i;
 	var bBlocks = [];
-	for (var i = 0; i < array.length; i++) {
+	for (i = 0; i < array.length; i++) {
 		arr = array[i];
 		bBlock = new CollectableItem(i, new Vector(arr[0], arr[1]), imgUrl, 32, 32, itemtype);
 		bBlocks.push(bBlock);
 	}
 	return bBlocks;
 }
-
-
 
   // Checks if the cell's class name is in the playable array.
   function isPlayable(cellclass) {
@@ -1209,7 +1203,9 @@ Target.prototype = {
   },
   
   tryMove: function(direction, stats) {
-     switch (direction) {
+  	 var baddie = document.getElementById('b1');
+     
+  	 switch (direction) {
      case 'up':
 	this.start = document.getElementById('block-'+(this.cellid-this.width));
           this.change = - this.width;
@@ -1229,7 +1225,7 @@ Target.prototype = {
       break;
     default:
       this.change = 0;
-      break;          
+              
       }
       
   if (isPlayable(this.start.className)) {
@@ -1277,41 +1273,30 @@ Target.prototype = {
   }
   
   else if (isOpen(this.start.className)) {
-    this.cellid += this.change;
-    this.moveIt();
-    //console.log(this.target);
-    document.getElementById("area").style.display = "none";
-    document.getElementById("tutorial").style.display = "initial";
-    this.move = false;
+  	  
+  	  var tolevel = 1;
+  	  if (this.start.className === "cell bg-door") { tolevel = 2; }
     
-    if (this.start.className === "cell bg-door") { 
-      var baddie = document.getElementById('b1');
+  	  this.cellid += this.change;
+      this.moveIt();
+
+      document.getElementById("area").style.display = "none";
+      document.getElementById("tutorial").style.display = "initial";
+      this.move = false;
+ 	
       baddie.parentNode.removeChild(baddie);
       Game.startGame();
-      Game.init(2, stats);
+      Game.init(tolevel, stats);
       Game.gameLoop();
-    };
-    
-    if (this.start.className === "cell bg-wood-door") { 
-      var baddie = document.getElementById('b1');
-      baddie.parentNode.removeChild(baddie);
-      Game.init(1, stats);
-      Game.gameLoop();
-    };
-  }
+    }
   
    else if (isExit(this.start.id)) {
-    
-    //console.log(this.target);
-    this.move = false;
-
-      var baddie = document.getElementById('b1');
+      this.move = false;
       baddie.parentNode.removeChild(baddie);
-    };
-    
+    } 
   }
   
-} //target
+}; //target
 
 
 /*
@@ -1322,7 +1307,7 @@ Target.prototype = {
 window.BoardGame = (function(){
    
   var init = function(fromLevel, newstats) {
-  var i, a, board = [], walls = [], cell, offset, start, width, height, target, cellid, next, moveIt = true, tryMove, 
+  var i, a, board = [], messagetxt, cell, width, height, target, cellid, next, moveIt = true, tryMove, 
   door = document.getElementsByClassName('cell bg-door'), 
   text = '', 
   message = document.getElementById('message');
@@ -1354,8 +1339,7 @@ window.BoardGame = (function(){
     for (b = offset; b < (arrlength+offset); b+=1) {
       this[b] = val;
     }
-  }
-  
+  };  
   
   board.makeColumn = function(val, offset, numcols, numrows) {
     var b;
@@ -1363,7 +1347,7 @@ window.BoardGame = (function(){
       board.assignValueToIndex(val, [offset]);
       offset += numcols;
     }
-  }
+  };
   
   board.makeColumnEverySecond = function(val, offset, numcols, numrows) {
     var b;
@@ -1372,19 +1356,18 @@ window.BoardGame = (function(){
       offset += numcols*2;
     }
 
-  }
+  };
   
     board.makeRow = function(val, offset, length) {
       board.fillSequence(val, offset, length);
-  }
+  };
   board.makeRowEverySecond = function(val, offset, length) {
     var b;
     for (b = length; b >= 0; b-=2) {
       board.assignValueToIndex(val, [offset]);
       offset += 2;
     }
-  }
-  
+  };  
   
   board.length = width*height;
   
@@ -1491,7 +1474,7 @@ window.BoardGame = (function(){
     stats.changeLevel(0);
    
     }
-  else stats = new Stats(768, 640, 0);
+  else { stats = new Stats(768, 640, 0);}
   stats.drawForBoard();
   
   target = new Target(cellid, width, height);
@@ -1499,7 +1482,7 @@ window.BoardGame = (function(){
     document.onkeydown = function(event) {
       
       if(stats.inMenu === "message-over" || stats.inMenu === "openChest" || stats.inMenu === "start") {
-	closePopUp('popup');
+      	  closePopUp('popup');
 	//console.log('closed popup');
       }
       
@@ -1531,7 +1514,6 @@ window.BoardGame = (function(){
         break;
       default:
         target.target.className='baddie down';
-        break;
     }    
     //console.log('Keypress: ' + event + ' key: ' + key + ' new pos: ' + target.target.offsetLeft + ', ' + target.target.offsetTop + ' Cell-id: '+ target.cellid);
     
@@ -1550,8 +1532,8 @@ window.BoardGame = (function(){
       };
       if (fromLevel === 0) {
   stats.inMenu = "start";
-  var message = "Welcome to Foxy's Quest! Your goal is to leave the forest.<br><br>You move around with the key arrows. Begin game by pressing any key.";
-  popUp('popup', message, 220, 64, 600, 100);
+  messagetxt = "Welcome to Foxy's Quest! Your goal is to leave the forest.<br><br>You move around with the key arrows. Begin game by pressing any key.";
+  popUp('popup', messagetxt, 220, 64, 600, 100);
   console.log('Current position: ' + target.target.offsetLeft + ', ' + target.target.offsetTop);
   console.log('Everything is ready.');
   	  }
@@ -1559,26 +1541,24 @@ window.BoardGame = (function(){
    if (fromLevel === 2) {
      playAudio("ta-da");
       stats.inMenu = "end";
-      var message = "CONGRATULATIONS!!!<br><br>You finished Foxy\'s Quest! Foxy can now leave the forest!<br><br>Your total score: "+stats.score+"<br><br>Play again? Press Ctrl+R";
-       popUp('popup', message, 170, 64, 600, 200)
+      messagetxt = "CONGRATULATIONS!!!<br><br>You finished Foxy\'s Quest! Foxy can now leave the forest!<br><br>Your total score: "+stats.score+"<br><br>Play again? Press Ctrl+R";
+       popUp('popup', messagetxt, 170, 64, 600, 200);
     }
-   
 
   };
   
  return {
     'init': init
-  }
+  };
 })();
 
 /**
  * Game, the Game
  */
 window.Game = (function(){
-  var canvas1, canvas, ct, player, lastGameTick, blocks, baddies, stats, gamearea, logs, coins, gems, fire, explosive, sweets, heart, fruits, areaElements, level, area, stoppedGame = false, stats, areaHouse, areaCastle;
+  var canvas1, canvas, ct, player, lastGameTick, gamearea, walls, pillars, platforms, logs, coins, gems, fire, explosive, sweets, heart, fruits, key1, level, area, stoppedGame, stats, areaHouse, areaCastle, removablepillars, width, height;
 
   var init = function(newlevel, newstats) {
-    
     level = newlevel;
     canvas1 = "tutorial";
     stoppedGame = false;
@@ -1591,30 +1571,30 @@ window.Game = (function(){
     
     if (level === 1) {
     //game objects for level 1
-    walls = createPillars([[0,0,20],[width-32,0,3],[width-32,200,15]],'img/tiles/platforms/brick-wall.png'),
-    logs = createLogs(),
-    sweets = createCollectables([[220,120],[220,156],[220,192],[220,228],[342, 300],[384, 280],[426,280],[468, 300],[420, 80]], "sweet", 'img/tiles/sweet/candy-green.png'), 
-    fruits = createCollectables([[40,450],[40,414],[40,378],[40,342],[530,20],[570,20]], "fruit", 'img/tiles/sweet/cherry.png'),
-    key1 = createCollectables([[40,180]], "key-metal", 'img/tiles/items/KeyMetal.png'),
-    heart = createCollectables([[820,430]], "life", 'img/tiles/items/heart2.png'),
+    walls = createPillars([[0,0,20],[width-32,0,3],[width-32,200,15]],'img/tiles/platforms/brick-wall.png');
+    logs = createLogs();
+    sweets = createCollectables([[220,120],[220,156],[220,192],[220,228],[342, 300],[384, 280],[426,280],[468, 300],[420, 80]], "sweet", 'img/tiles/sweet/candy-green.png');
+    fruits = createCollectables([[40,450],[40,414],[40,378],[40,342],[530,20],[570,20]], "fruit", 'img/tiles/sweet/cherry.png');
+    key1 = createCollectables([[40,180]], "key-metal", 'img/tiles/items/KeyMetal.png');
+    heart = createCollectables([[820,430]], "life", 'img/tiles/items/heart2.png');
     areaHouse = [logs, walls, sweets, heart, fruits, key1];
     }
     
     if (level === 2) {
     // game objects for level 2
-    pillars = createPillars([[352,-4,12],[200,396,2],[width-32,0,3],[width-32,416,7],[0,0,19]], 'img/tiles/wall/stone_brick1.png'),
+    pillars = createPillars([[352,-4,12],[200,396,2],[width-32,0,3],[width-32,416,7],[0,0,19]], 'img/tiles/wall/stone_brick1.png');
     
-    platforms = createPlatforms(),
-    fire = createCollectables([[835,520]], "fire", 'img/tiles/items/fire.png'),
+    platforms = createPlatforms();
+    fire = createCollectables([[835,520]], "fire", 'img/tiles/items/fire.png');
     
-    gems = createCollectables([[410,180], [410,320]], "gem", 'img/tiles/items/emerald.png'),
-    coins = createCollectables([[70,300],[70,335],[70,370],[310,450],[335,430], [370,430],[395,450],[590,450],[615,430],[650,430], [675,450],[420,50],[455,50],[490,50],[525,50],[560,50], [595,50],[630,50]], "coin", 'img/tiles/items/coin.png'),
+    gems = createCollectables([[410,180], [410,320]], "gem", 'img/tiles/items/emerald.png');
+    coins = createCollectables([[70,300],[70,335],[70,370],[310,450],[335,430], [370,430],[395,450],[590,450],[615,430],[650,430], [675,450],[420,50],[455,50],[490,50],[525,50],[560,50], [595,50],[630,50]], "coin", 'img/tiles/items/coin.png');
     areaCastle = [platforms, pillars, removablepillars, coins, gems, fire, explosive];
     }
     
     // create gamearea at starting point
     //if (level > 0) {
-    gamearea = new GameArea(ct, width, height, areaHouse),
+    gamearea = new GameArea(ct, width, height, areaHouse);
     player = new Player(1, 32, 32, new Vector(0, -10));
     //}
     if (newstats) {
@@ -1626,7 +1606,7 @@ window.Game = (function(){
     stats.bricks = removablepillars;
     stats.explosives = explosive;
     }
-    else stats = new Stats(width, height, 0, level, removablepillars, explosive);
+    else { stats = new Stats(width, height, 0, level, removablepillars, explosive);}
     
   };
   
@@ -1682,17 +1662,17 @@ window.Game = (function(){
 
   function collidewith(item) {
     item.collideWith(player, this, stats); 
-  };
+  }
   
   function drawmany(item) {
     item.draw(ct); 
-  };
+  }
 
   var gameLoop = function() {
     
     if (!stoppedGame) {
     var now = Date.now();
-    td = (now - (lastGameTick || now)) / 1000; // Timediff since last frame / gametick
+    var td = (now - (lastGameTick || now)) / 1000; // Timediff since last frame / gametick
     lastGameTick = now;
     requestAnimFrame(gameLoop);
     update(td);
@@ -1715,7 +1695,7 @@ window.Game = (function(){
     'gameLoop': gameLoop,
     'stopGame': stopGame,
     'startGame': startGame
-  }
+  };
 })();
 
 
