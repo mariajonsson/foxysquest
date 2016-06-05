@@ -46,7 +46,7 @@ Choose this installation of you don't have a webserver/PHP installed.
 
 ### Php and web server
 
-1. Install the webroot folder on your computer   
+1. Install the webroot folder on your computer, where you can reach it through localhost.   
 2. Open **webroot/index.php** in your web browser   
 3. Play!
 
