@@ -170,7 +170,7 @@ function Item(id, position, imageSrc, width, height) {
   this.image = img;
   this.height = height || 32;
   this.width = width || 32;
-  this.position   = position  || new Vector();
+  this.position   = position  || new Vector(0,0);
 
 }
 
